@@ -27,3 +27,13 @@ dist/
 *.jpg
 *.jpeg
 *.heic
+
+# TLS / secrets — never publish
+deploy/certs/
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
+server*.log
+server*.err

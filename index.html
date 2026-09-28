@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>私人数据时光轴</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">轴</div>
+        <div>
+          <div class="brand-title">私人数据时光轴</div>
+          <div class="brand-sub">LOCAL · AI-READY · EXPORTABLE</div>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <button data-page="home" class="nav-item active">首页</button>
+        <button data-page="day" class="nav-item">日记录</button>
+        <button data-page="calendar" class="nav-item">日历</button>
+        <button data-page="trends" class="nav-item">趋势</button>
+        <button data-page="report" class="nav-item">月报</button>
+        <button data-page="import" class="nav-item">导入导出</button>
+        <button data-page="metrics" class="nav-item">指标设置</button>
+        <button data-page="members" class="nav-item">成员</button>
+        <button data-page="settings" class="nav-item">账号与密钥</button>
+        <button data-page="api" class="nav-item">AI 接口</button>
+        <button data-page="help" class="nav-item">帮助</button>
+      </nav>
+      <div class="sidebar-foot">
+        <div id="status-pill" class="pill"><span class="dot"></span>本地服务</div>
+        <div class="muted small" id="db-path" style="padding:0 8px;word-break:break-all"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1 id="page-title">首页</h1>
+        <div class="topbar-actions row">
+          <button id="btn-ai-quick" class="btn">AI 快速录入</button>
+          <button id="btn-quick-today" class="btn primary">记录今天</button>
+        </div>
+      </header>
+      <div id="page" class="page"></div>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script src="/js/charts.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

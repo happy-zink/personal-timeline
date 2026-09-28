@@ -1,0 +1,32 @@
+# Caddyfile — 生产/家庭 HTTPS 反代模板
+#
+# 用法：
+#   1. 把 timeline.example.com 改成你的域名（或用 :8443 自签）
+#   2. 安装 Caddy 后：caddy run --config deploy/Caddyfile
+#   3. 自动申请 Let's Encrypt（需域名指向本机 80/443）
+#
+# 若只要内网自签，请改用 deploy/start_https.ps1
+
+timeline.example.com {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:8764
+
+	# 安全响应头
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	# 可选：限制上传大小（CSV 导入）
+	request_body {
+		max_size 20MB
+	}
+}
+
+# ---- 或无域名、仅本机/局域网自签（浏览器会告警，供家人临时用）----
+# :8443 {
+# 	tls internal
+# 	reverse_proxy 127.0.0.1:8764
+# }
